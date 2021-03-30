@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const axios = require('axios');
 const { apiKey } = require('./config.js');
 
@@ -13,7 +14,7 @@ module.exports = {
         // diet: 'vegetarian',
         // excludeIngredients: 'coconut',
         // intolerances: 'egg, gluten',
-        // number: '10',
+        number: '12',
         // offset: '0',
         // type: 'main course',
       },

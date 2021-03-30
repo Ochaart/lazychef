@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Search from './search';
 import RecipesList from './recipesList';
+import AppContainer from '../styles/appContainer';
 
 const App = () => {
   const [recipes, setRecipies] = useState([]);
@@ -19,10 +20,16 @@ const App = () => {
       });
   };
   return (
-    <div className="app-container">
+    <AppContainer className="app-container">
+      <div className="navigation">
+
+      </div>
+      <div className="chef-container">
+        <img className="chef" src="./assets/chef.png" alt="lazy chef" />
+      </div>
       <Search getRecipies={getRecipes} />
       <RecipesList recipes={recipes} />
-    </div>
+    </AppContainer>
   );
 };
 

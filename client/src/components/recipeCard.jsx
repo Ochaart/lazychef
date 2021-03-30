@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 const RecipeCard = ({ recipe }) => (
   <div className="recipe-card">
-    <div className="image">
-      <img src={recipe.image} alt={recipe.title} />
+    <div className="image-container">
+      <img className="image" src={recipe.image} alt={recipe.title} />
     </div>
     <div className="title">{recipe.title}</div>
     {/* <div className="minutes">{recipe.readyInMinutes}</div> */}

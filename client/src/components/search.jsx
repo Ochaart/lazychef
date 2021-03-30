@@ -14,10 +14,10 @@ const Search = ({ getRecipies }) => {
   };
 
   return (
-    <form className="search">
-      <label htmlFor="ingredient">
-        Ingredient
-        <input type="text" value={food} onChange={(event) => handleChange(event)} />
+    <form className="search" onSubmit={(event) => search(event)}>
+      <label className="search-label" htmlFor="Dish">
+        Dish
+        <input className="search-text" type="text" value={food} onChange={(event) => handleChange(event)} />
       </label>
       <button className="search-button" type="button" onClick={(event) => search(event)}>Search</button>
     </form>
