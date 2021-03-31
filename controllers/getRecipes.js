@@ -28,4 +28,21 @@ module.exports = {
         res.status(400).send(error);
       });
   },
+  getRecipeDetails: (req, res) => {
+    axios.request({
+      method: 'GET',
+      url: 'https://api.spoonacular.com/recipes/716429/information',
+      params: {
+        apiKey,
+        id: req.query.recipeId,
+        includeNutrition: false,
+      },
+    })
+      .then(({ data }) => {
+        res.status(200).send(data);
+      })
+      .catch((error) => {
+        res.status(400).send(error);
+      });
+  },
 };

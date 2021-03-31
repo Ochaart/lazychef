@@ -11,6 +11,7 @@ const Search = ({ getRecipies }) => {
   const search = (event) => {
     event.preventDefault();
     getRecipies(food);
+    setFood('');
   };
 
   return (
