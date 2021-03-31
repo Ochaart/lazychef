@@ -31,10 +31,9 @@ module.exports = {
   getRecipeDetails: (req, res) => {
     axios.request({
       method: 'GET',
-      url: 'https://api.spoonacular.com/recipes/716429/information',
+      url: `https://api.spoonacular.com/recipes/${req.query.recipeId}/information`,
       params: {
         apiKey,
-        id: req.query.recipeId,
         includeNutrition: false,
       },
     })

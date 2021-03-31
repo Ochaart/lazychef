@@ -1,18 +1,18 @@
 import styled from 'styled-components';
 
 const AppContainer = styled.div`
+  padding-bottom: 5%;
   .recipes-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     grid-column-gap: 1%;
     grid-row-gap: 1%;
-    margin: 0 6% 10% 6%;
+    margin: 0 6% 0 6%;
   }
   .image-container {
    height: 200px;
    width: 100%;
-
   }
   .image {
     object-fit: cover;
@@ -52,7 +52,7 @@ const AppContainer = styled.div`
 
   .search-button {
     display: block;
-    margin: 0 auto 10% auto;
+    margin: 0 auto 8% auto;
     border: 1px solid white;
     border-radius: 2%;
     background: lightgray;
@@ -76,6 +76,17 @@ const AppContainer = styled.div`
   }
   .recipe-card {
     cursor: pointer;
+    @keyframes rise {
+      from {
+        transform: translateY(30%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    animation: rise 0.5s;
   }
   .recipe-modal-container {
     height: 100%;
@@ -88,6 +99,7 @@ const AppContainer = styled.div`
     justify-content: center;
     align-items: center;
     backdrop-filter:blur(5px);
+    cursor: pointer;
   }
 
   .recipe-modal {
@@ -95,9 +107,9 @@ const AppContainer = styled.div`
     padding: 20px;
     border: 1px solid black;
     height: auto;
-    width: 80%;
+    width: 60%;
     border-radius: 5px;
-    max-width: 80%;
+    max-width: 60%;
     @keyframes drop {
       from {
         transform: translateY(-30%);
@@ -113,13 +125,14 @@ const AppContainer = styled.div`
     grid-template-columns: 3fr 1fr;
     grid-template-rows: auto;
     overflow: auto;
+    cursor: initial;
   }
 
   .recipe-modal-description {
     display: block;
     text-align: justify;
   }
-  .recipe-modal-ingredients {
+  .recipe-modal-details {
     /* display: grid;
     grid-template-rows: auto;
     grid-template-columns: 1fr;
@@ -142,13 +155,14 @@ const AppContainer = styled.div`
   .icons-container {
     margin-bottom: 3%;
     text-align: center;
+    font-size:
   }
 
   .metrix-container {
     display: inline-block;
     font-size: 80%;
     text-align: center;
-    margin: 1% 0 1% 3%;
+    margin: 1% 0 1% 5%;
   }
 
   .recipe-modal-description .title {
@@ -170,6 +184,58 @@ const AppContainer = styled.div`
     margin: 3%;
     color: darkslategray;
     text-indent: 3%;
+  }
+
+  .ingredients-list {
+    display: flex;
+    overflow: auto;
+    flex-wrap: wrap;
+    font-size: 10%;
+    margin-right: -200px;
+    width: 100%;
+    height: auto;
+    text-align: center;
+  }
+
+  .ingredient {
+    margin: 1% 0;
+    word-wrap: normal;
+    width: 24%;
+  }
+
+  .facts {
+    font-size: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    margin: 11% 10%
+  }
+
+  .source-container {
+    text-align: right;
+    font-size: 78%;
+    margin-right: 3%;
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    align-items: center;
+  }
+
+  .source {
+    grid-column-start: 2;
+    grid-row-start: 1;
+  }
+
+  .source-link {
+    grid-column-start: 2;
+    grid-row-start: 2;
+  }
+
+  .cookbook-meal-container {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-left: 53%;
+    font-size: 80%;
   }
 `;
 
