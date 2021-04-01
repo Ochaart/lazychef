@@ -8,6 +8,7 @@ import RecipeModal from './recipeModal';
 import Navigation from './navigation';
 import chef from '../../../public/assets/chef.png';
 import RestaurantList from './restaurantsList';
+import RestaurantModal from './restaurantModal';
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
@@ -15,6 +16,8 @@ const App = () => {
   const [showModal, setShowModal] = useState(false);
   const [restaurants, setRestaurants] = useState([]);
   const [toggleRestOrRecipes, toggle] = useState(false);
+  const [showRestaurant, setShowRestaurant] = useState(false);
+  const [restaurantDetails, setRestaurantDetails] = useState({});
 
   const getRestaurants = (term) => {
     axios.get('/getRestaurants', {
@@ -26,6 +29,13 @@ const App = () => {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const getRestaurantDetails = (event, restaurantInfo) => {
+    event.preventDefault();
+    console.log(restaurantInfo);
+    setRestaurantDetails(restaurantInfo);
+    setShowRestaurant(true);
   };
 
   const getRecipes = (ingredient) => {
@@ -62,6 +72,14 @@ const App = () => {
           />
         )
         : null}
+      {showRestaurant
+        ? (
+          <RestaurantModal
+            restaurantDetails={restaurantDetails}
+            setShowRestaurant={setShowRestaurant}
+          />
+        )
+        : null}
       <Navigation />
       <div className="chef-container">
         <img className="chef" src={chef} alt="lazy chef" />
@@ -70,6 +88,7 @@ const App = () => {
       {toggleRestOrRecipes ? (
         <RestaurantList
           restaurants={restaurants}
+          getRestaurantDetails={getRestaurantDetails}
         />
       ) : (
         <RecipesList

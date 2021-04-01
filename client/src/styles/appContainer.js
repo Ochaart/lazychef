@@ -273,10 +273,6 @@ const AppContainer = styled.div`
     text-align: center;
   }
 
-  /* .restaurant-container {
-
-  } */
-
   .restaurant-card {
     display: grid;
     grid-template-columns: 3fr 1fr;
@@ -295,6 +291,8 @@ const AppContainer = styled.div`
       }
     }
     animation: rise 0.5s;
+    outline:none;
+    cursor: pointer;
   }
 
 
