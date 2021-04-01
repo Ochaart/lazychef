@@ -4,7 +4,7 @@ import NavigationContainer from '../styles/navigation';
 
 const Navigation = () => (
   <NavigationContainer>
-    <Link className="link" to={{ pathname: '/' }}>Home</Link>
+    <Link className="link" to={{ pathname: '/lazychef/home' }}>Home</Link>
     <Link className="link" to={{ pathname: '/lazychef/meal' }}>Meal Plan</Link>
     <Link className="link" to={{ pathname: '/lazychef/cookbook' }}>Cook Book</Link>
     <Link className="link" to={{ pathname: '/lazychef/instacart' }}>Instacart</Link>

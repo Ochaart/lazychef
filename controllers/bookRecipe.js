@@ -39,4 +39,13 @@ module.exports = {
         res.status(400).send(error);
       });
   },
+  getBookRecipes: (req, res) => {
+    Recipe.find({})
+      .then((result) => {
+        res.status(200).send(result);
+      })
+      .catch((error) => {
+        res.status(400).send(error);
+      });
+  },
 };

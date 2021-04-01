@@ -4,16 +4,20 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Ingredients from './ingredients';
+import love from '../../../public/assets/love.png';
+import book from '../../../public/assets/book.png';
+import clock from '../../../public/assets/alarm-clock.png';
+import planner from '../../../public/assets/planner.png';
+import score from '../../../public/assets/score.png';
+import serves from '../../../public/assets/add-group.png';
 
 const RecipeModal = ({ recipeDetails, setShowModal }) => {
   const [details] = useState(recipeDetails);
   const [wasAdded, setWasAdded] = useState(false);
 
   const findRecipe = (id) => {
-    console.log(id);
     axios.get('/findRecipe', { params: { id } })
       .then(({ data }) => {
-        console.log(data);
         if (data.length !== 0) {
           setWasAdded(true);
         }
@@ -24,7 +28,6 @@ const RecipeModal = ({ recipeDetails, setShowModal }) => {
   };
 
   useEffect(() => {
-    console.log(details.id);
     findRecipe(details.id);
   }, []);
 
@@ -33,19 +36,16 @@ const RecipeModal = ({ recipeDetails, setShowModal }) => {
     event.stopPropagation();
     if (!wasAdded) {
       axios.post('/addRecipe', details)
-        .then(({ data }) => {
+        .then(() => {
           setWasAdded(!wasAdded);
-          console.log(data);
         })
         .catch((error) => {
           console.log(error);
         });
     } else {
-      console.log(details.id);
-      axios.delete('/deleteRecipe', { id: details.id })
-        .then(({ data }) => {
+      axios.delete('/deleteRecipe', { data: { id: details.id } })
+        .then(() => {
           setWasAdded(!wasAdded);
-          console.log(data);
         })
         .catch((error) => {
           console.log(error);
@@ -70,11 +70,11 @@ const RecipeModal = ({ recipeDetails, setShowModal }) => {
             </div>
             <div className="cookbook-meal-container">
               <div className="cookbook-container" onClick={(event) => handleRecipe(event)} onKeyDown={(event) => handleRecipe(event)} role="button" tabIndex={0}>
-                <img src="./assets/book.png" className="badge" alt="cook book" title="cook book" width="30" height="30" />
+                <img src={book} className="badge" alt="cook book" title="cook book" width="30" height="30" />
                 <div>{wasAdded ? 'Remove Recipe' : 'Add Recipe' }</div>
               </div>
               <div className="meal-container">
-                <img src="./assets/planner.png" className="badge" alt="planner" title="planner" width="30" height="30" />
+                <img src={planner} className="badge" alt="planner" title="planner" width="30" height="30" />
                 <div>Schedule</div>
               </div>
             </div>
@@ -84,25 +84,25 @@ const RecipeModal = ({ recipeDetails, setShowModal }) => {
           <div className="icons-container">
             <div className="metrix-container">
               <div className="icon-container">
-                <img src="./assets/score.png" className="badge" alt="heart" title="heart" width="30" height="30" />
+                <img src={score} className="badge" alt="score" title="score" width="30" height="30" />
               </div>
               {`Score: ${recipeDetails.spoonacularScore}`}
             </div>
             <div className="metrix-container">
               <div className="icon-container">
-                <img src="./assets/add-group.png" className="badge" alt="servings" title="servings" width="30" height="30" />
+                <img src={serves} className="badge" alt="servings" title="servings" width="30" height="30" />
               </div>
               {`Serves: ${recipeDetails.servings}`}
             </div>
             <div className="metrix-container">
               <div className="icon-container">
-                <img src="./assets/alarm-clock.png" className="badge" alt="clock" title="clock" width="30" height="30" />
+                <img src={clock} className="badge" alt="clock" title="clock" width="30" height="30" />
               </div>
               {`${recipeDetails.readyInMinutes} mins`}
             </div>
             <div className="metrix-container">
               <div className="icon-container">
-                <img src="./assets/love.png" className="badge" alt="likes" title="likes" width="30" height="30" />
+                <img src={love} className="badge" alt="likes" title="likes" width="30" height="30" />
               </div>
               {`${recipeDetails.aggregateLikes}`}
             </div>

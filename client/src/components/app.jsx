@@ -6,6 +6,7 @@ import RecipesList from './recipesList';
 import AppContainer from '../styles/appContainer';
 import RecipeModal from './recipeModal';
 import Navigation from './navigation';
+import chef from '../../../public/assets/chef.png';
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
@@ -49,7 +50,7 @@ const App = () => {
         : null}
       <Navigation />
       <div className="chef-container">
-        <img className="chef" src="./assets/chef.png" alt="lazy chef" />
+        <img className="chef" src={chef} alt="lazy chef" />
       </div>
       <Search getRecipes={getRecipes} />
       <RecipesList recipes={recipes} getRecipeDetails={getRecipeDetails} />

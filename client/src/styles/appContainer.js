@@ -60,7 +60,7 @@ const AppContainer = styled.div`
     cursor: pointer;
     outline: none;
   }
-  
+
   .title {
     font-size: 150%;
     text-align: center;
@@ -235,6 +235,24 @@ const AppContainer = styled.div`
   .cookbook-container, .meal-container {
     outline: none;
     cursor: pointer;
+  }
+
+  .book-container {
+    height: 300px;
+    width: 40%;
+    margin: auto;
+    z-index: -1;
+  }
+  .book {
+    margin-top: -6%;
+    height: 100%;
+    width: 100%;
+  }
+  .cookbook {
+    /* display: grid; */
+    /* grid-template-rows: 1fr 1fr 1fr 1fr */
+    /* grid-template-columns: auto; */
+    margin-top: -6%;
   }
 `;
 

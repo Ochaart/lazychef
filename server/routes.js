@@ -11,4 +11,5 @@ router.post('/addRecipe', controller2.addRecipe);
 router.delete('/deleteRecipe', controller2.deleteRecipe);
 
 router.get('/findRecipe', controller2.findRecipe);
+router.get('/getBookRecipes', controller2.getBookRecipes);
 module.exports = router;
