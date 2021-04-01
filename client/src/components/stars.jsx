@@ -45,7 +45,7 @@ const Stars = ({ rating }) => {
 
   return (
     <div className="stars-container">
-      <img src={returnStars()} alt={rating} />
+      <img src={returnStars(rating)} alt={rating} />
     </div>
   );
 };

@@ -249,11 +249,55 @@ const AppContainer = styled.div`
     width: 100%;
   }
   .cookbook {
-    /* display: grid; */
-    /* grid-template-rows: 1fr 1fr 1fr 1fr */
-    /* grid-template-columns: auto; */
     margin-top: -6%;
   }
+
+  .restaurant-image-container {
+    height: 300px;
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 5%;
+  }
+
+  .restaurant-image {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    border: 1px solid white;
+    border-radius: 2%;
+  }
+  .stars-container {
+    margin-top: 3%;
+  }
+  .restaurant-ratings {
+    text-align: center;
+  }
+
+  /* .restaurant-container {
+
+  } */
+
+  .restaurant-card {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-content: center;
+    margin: 3% 12%;
+    @keyframes rise {
+      from {
+        transform: translateY(30%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    animation: rise 0.5s;
+  }
+
+
 `;
 
 export default AppContainer;

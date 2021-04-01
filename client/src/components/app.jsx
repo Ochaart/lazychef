@@ -16,7 +16,7 @@ const App = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [toggleRestOrRecipes, toggle] = useState(false);
 
-  const getRestaurants = (event, term) => {
+  const getRestaurants = (term) => {
     axios.get('/getRestaurants', {
       params: { term },
     })
@@ -69,7 +69,7 @@ const App = () => {
       <Search getRecipes={getRecipes} getRestaurants={getRestaurants} toggle={toggle} />
       {toggleRestOrRecipes ? (
         <RestaurantList
-          retaurants={restaurants}
+          restaurants={restaurants}
         />
       ) : (
         <RecipesList

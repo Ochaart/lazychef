@@ -4,11 +4,13 @@ import Stars from './stars';
 
 const RestaurantCard = ({ restaurant }) => (
   <div className="restaurant-card">
-    <div className="image-container">
-      <img src={restaurant.image_url} alt={restaurant.alias} />
+    <div className="restaurant-image-container">
+      <img className="restaurant-image" src={restaurant.image_url} alt={restaurant.alias} />
     </div>
-    <div className="title">{restaurant.name}</div>
-    <Stars rating={restaurant.rating} />
+    <div className="restaurant-ratings">
+      <div className="title">{restaurant.name}</div>
+      <Stars rating={restaurant.rating} />
+    </div>
   </div>
 );
 
