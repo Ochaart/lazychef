@@ -7,7 +7,6 @@ const RecipeCard = ({ recipe, getRecipeDetails }) => (
       <img className="image" src={recipe.image} alt={recipe.title} />
     </div>
     <div className="title">{recipe.title}</div>
-    {/* <div className="minutes">{recipe.readyInMinutes}</div> */}
   </div>
 );
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const Search = ({ getRecipies }) => {
+const Search = ({ getRecipes }) => {
   const [food, setFood] = useState('');
   const handleChange = (event) => {
     event.preventDefault();
@@ -10,7 +10,7 @@ const Search = ({ getRecipies }) => {
 
   const search = (event) => {
     event.preventDefault();
-    getRecipies(food);
+    getRecipes(food);
     setFood('');
   };
 
@@ -28,9 +28,9 @@ const Search = ({ getRecipies }) => {
 export default Search;
 
 Search.propTypes = {
-  getRecipies: PropTypes.func,
+  getRecipes: PropTypes.func,
 };
 
 Search.defaultProps = {
-  getRecipies: PropTypes.func,
+  getRecipes: PropTypes.func,
 };

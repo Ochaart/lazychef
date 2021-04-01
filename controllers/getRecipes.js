@@ -20,11 +20,9 @@ module.exports = {
       },
     })
       .then((recipes) => {
-        console.log(recipes.data);
         res.status(200).send(recipes.data);
       })
       .catch((error) => {
-        // console.log(error);
         res.status(400).send(error);
       });
   },

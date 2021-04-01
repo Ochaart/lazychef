@@ -5,9 +5,10 @@ import Search from './search';
 import RecipesList from './recipesList';
 import AppContainer from '../styles/appContainer';
 import RecipeModal from './recipeModal';
+import Navigation from './navigation';
 
 const App = () => {
-  const [recipes, setRecipies] = useState([]);
+  const [recipes, setRecipes] = useState([]);
   const [recipeDetails, setRecipeDetails] = useState({});
   const [showModal, setShowModal] = useState(false);
   const getRecipes = (ingredient) => {
@@ -15,7 +16,8 @@ const App = () => {
       params: { ingredient },
     })
       .then(({ data }) => {
-        setRecipies(data.results);
+        console.log(data.results);
+        setRecipes(data.results);
       })
       .catch((error) => {
         console.log(error);
@@ -45,17 +47,11 @@ const App = () => {
           />
         )
         : null}
-      <div className="navigation">
-        <div>Home</div>
-        <div>Meal Plan</div>
-        <div>Cook Book</div>
-        <div>Instacart</div>
-        <div>My Account</div>
-      </div>
+      <Navigation />
       <div className="chef-container">
         <img className="chef" src="./assets/chef.png" alt="lazy chef" />
       </div>
-      <Search getRecipies={getRecipes} />
+      <Search getRecipes={getRecipes} />
       <RecipesList recipes={recipes} getRecipeDetails={getRecipeDetails} />
     </AppContainer>
   );

@@ -58,18 +58,9 @@ const AppContainer = styled.div`
     background: lightgray;
     width: 8%;
     cursor: pointer;
+    outline: none;
   }
-
-  .navigation {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background: #b87333;
-    height: 30px;
-    position: sticky;
-    top: 0;
-  }
-
+  
   .title {
     font-size: 150%;
     text-align: center;
@@ -87,6 +78,7 @@ const AppContainer = styled.div`
       }
     }
     animation: rise 0.5s;
+    outline: none;
   }
   .recipe-modal-container {
     height: 100%;
@@ -100,6 +92,7 @@ const AppContainer = styled.div`
     align-items: center;
     backdrop-filter:blur(5px);
     cursor: pointer;
+    outline: none;
   }
 
   .recipe-modal {
@@ -126,6 +119,7 @@ const AppContainer = styled.div`
     grid-template-rows: auto;
     overflow: auto;
     cursor: initial;
+    outline: none;
   }
 
   .recipe-modal-description {
@@ -190,7 +184,7 @@ const AppContainer = styled.div`
     display: flex;
     overflow: auto;
     flex-wrap: wrap;
-    font-size: 10%;
+    font-size: 63%;
     margin-right: -200px;
     width: 100%;
     height: auto;
@@ -204,7 +198,7 @@ const AppContainer = styled.div`
   }
 
   .facts {
-    font-size: 70%;
+    font-size: 75%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
@@ -236,6 +230,11 @@ const AppContainer = styled.div`
     text-align: center;
     margin-left: 53%;
     font-size: 80%;
+  }
+
+  .cookbook-container, .meal-container {
+    outline: none;
+    cursor: pointer;
   }
 `;
 

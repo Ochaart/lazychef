@@ -1,19 +1,62 @@
+/* eslint-disable no-console */
 /* eslint-disable react/no-danger */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Ingredients from './ingredients';
 
 const RecipeModal = ({ recipeDetails, setShowModal }) => {
   const [details] = useState(recipeDetails);
-  const addRecipe = () => {
-    axios.post('/addRecipe', details);
+  const [wasAdded, setWasAdded] = useState(false);
+
+  const findRecipe = (id) => {
+    console.log(id);
+    axios.get('/findRecipe', { params: { id } })
+      .then(({ data }) => {
+        console.log(data);
+        if (data.length !== 0) {
+          setWasAdded(true);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    console.log(details.id);
+    findRecipe(details.id);
+  }, []);
+
+  const handleRecipe = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    if (!wasAdded) {
+      axios.post('/addRecipe', details)
+        .then(({ data }) => {
+          setWasAdded(!wasAdded);
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      console.log(details.id);
+      axios.delete('/deleteRecipe', { id: details.id })
+        .then(({ data }) => {
+          setWasAdded(!wasAdded);
+          console.log(data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
   return (
     <div className="recipe-modal-container" onClick={(event) => { event.stopPropagation(); setShowModal(false); }} onKeyDown={() => setShowModal(false)} role="button" tabIndex={0}>
       <div className="recipe-modal" onClick={(event) => event.stopPropagation()} onKeyDown={(event) => event.stopPropagation()} role="button" tabIndex={0}>
         <div className="recipe-modal-description">
-          <div className="title">{recipeDetails.title}</div>
+          <div className="title">{`${recipeDetails.title}${wasAdded ? ' ✓' : ''}`}</div>
           <div className="image-container">
             <img className="image" src={recipeDetails.image} alt={recipeDetails.title} />
           </div>
@@ -26,9 +69,9 @@ const RecipeModal = ({ recipeDetails, setShowModal }) => {
               <a href={recipeDetails.sourceUrl} className="source-link" target="_blank" rel="noreferrer">See Full Recipe Here!</a>
             </div>
             <div className="cookbook-meal-container">
-              <div className="cookbook-container">
+              <div className="cookbook-container" onClick={(event) => handleRecipe(event)} onKeyDown={(event) => handleRecipe(event)} role="button" tabIndex={0}>
                 <img src="./assets/book.png" className="badge" alt="cook book" title="cook book" width="30" height="30" />
-                <div>Add Recipe</div>
+                <div>{wasAdded ? 'Remove Recipe' : 'Add Recipe' }</div>
               </div>
               <div className="meal-container">
                 <img src="./assets/planner.png" className="badge" alt="planner" title="planner" width="30" height="30" />
@@ -86,6 +129,7 @@ RecipeModal.propTypes = {
     id: PropTypes.number,
     title: PropTypes.string,
     aggregateLikes: PropTypes.number,
+    instructions: PropTypes.string,
     spoonacularScore: PropTypes.number,
     healthScore: PropTypes.number,
     readyInMinutes: PropTypes.number,
