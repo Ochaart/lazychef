@@ -71,7 +71,7 @@ const RecipeModal = ({ recipeDetails, setShowModal }) => {
             <div className="cookbook-meal-container">
               <div className="cookbook-container" onClick={(event) => handleRecipe(event)} onKeyDown={(event) => handleRecipe(event)} role="button" tabIndex={0}>
                 <img src={book} className="badge" alt="cook book" title="cook book" width="30" height="30" />
-                <div>{wasAdded ? 'Remove Recipe' : 'Add Recipe' }</div>
+                <div>{wasAdded ? 'Remove' : 'Add Recipe' }</div>
               </div>
               <div className="meal-container">
                 <img src={planner} className="badge" alt="planner" title="planner" width="30" height="30" />

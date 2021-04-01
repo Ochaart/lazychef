@@ -13,6 +13,3 @@ const Navigation = () => (
 );
 
 export default Navigation;
-
-
-// to={{ pathname: `/product/${productInfo.id}` }} className="productContainer" onClick={(event) => { event.stopPropagation(); trackInteraction(event, 'RelatedOutfit'); getProduct(productInfo.id); setTimeout(() => { window.location.reload(); }, 50); }}

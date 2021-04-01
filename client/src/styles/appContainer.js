@@ -2,14 +2,14 @@ import styled from 'styled-components';
 
 const AppContainer = styled.div`
   padding-bottom: 5%;
-  font-family: helvetica;
+  font-family: sans-serif;
   .recipes-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
-    grid-column-gap: 1%;
-    grid-row-gap: 1%;
-    margin: 0 9%;
+    grid-column-gap: 2%;
+    grid-row-gap: 2%;
+    margin: 0 11%;
   }
   .image-container {
    height: 200px;
@@ -51,20 +51,24 @@ const AppContainer = styled.div`
     width: 20%;
   }
 
+  .button-container {
+    text-align: center;
+    margin-bottom: 9%;
+  }
+
   .search-button {
-    display: block;
-    margin: 0 auto 8% auto;
     border: 1px solid white;
     border-radius: 2%;
     background: lightgray;
-    width: 8%;
     cursor: pointer;
     outline: none;
+    width: 10%;
   }
 
   .title {
-    font-size: 150%;
+    font-size: 120%;
     text-align: center;
+    margin-top: 2.5%;
   }
   .recipe-card {
     cursor: pointer;
@@ -99,6 +103,7 @@ const AppContainer = styled.div`
   .recipe-modal {
     background-color: white;
     padding: 20px;
+    padding-bottom: 40px;
     border: 1px solid black;
     height: auto;
     width: 60%;
@@ -159,7 +164,7 @@ const AppContainer = styled.div`
   }
 
   .recipe-modal-description .image-container {
-    margin: 0 3% 3% 3%;
+    margin: 2% 3% 3% 3%;
     width: auto;
   }
 

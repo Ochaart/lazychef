@@ -1,13 +1,11 @@
 /* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 import Navigation from './navigation';
 import openbook from '../../../public/assets/openbook.jpg';
 import RecipesList from './recipesList';
 import RecipeModal from './recipeModal';
 import AppContainer from '../styles/appContainer';
-import BookContainer from '../styles/bookContainer';
 
 const Cookbook = () => {
   const [recipes, setRecipes] = useState([]);

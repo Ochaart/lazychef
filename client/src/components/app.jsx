@@ -7,17 +7,32 @@ import AppContainer from '../styles/appContainer';
 import RecipeModal from './recipeModal';
 import Navigation from './navigation';
 import chef from '../../../public/assets/chef.png';
+import RestaurantList from './restaurantsList';
 
 const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [recipeDetails, setRecipeDetails] = useState({});
   const [showModal, setShowModal] = useState(false);
+  const [restaurants, setRestaurants] = useState([]);
+  const [toggleRestOrRecipes, toggle] = useState(false);
+
+  const getRestaurants = (event, term) => {
+    axios.get('/getRestaurants', {
+      params: { term },
+    })
+      .then(({ data }) => {
+        setRestaurants(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const getRecipes = (ingredient) => {
     axios.get('/getRecipes', {
       params: { ingredient },
     })
       .then(({ data }) => {
-        console.log(data.results);
         setRecipes(data.results);
       })
       .catch((error) => {
@@ -30,7 +45,6 @@ const App = () => {
       params: { recipeId },
     })
       .then(({ data }) => {
-        console.log(data);
         setRecipeDetails(data);
         setShowModal(true);
       })
@@ -52,8 +66,17 @@ const App = () => {
       <div className="chef-container">
         <img className="chef" src={chef} alt="lazy chef" />
       </div>
-      <Search getRecipes={getRecipes} />
-      <RecipesList recipes={recipes} getRecipeDetails={getRecipeDetails} />
+      <Search getRecipes={getRecipes} getRestaurants={getRestaurants} toggle={toggle} />
+      {toggleRestOrRecipes ? (
+        <RestaurantList
+          retaurants={restaurants}
+        />
+      ) : (
+        <RecipesList
+          recipes={recipes}
+          getRecipeDetails={getRecipeDetails}
+        />
+      )}
     </AppContainer>
   );
 };
