@@ -4,7 +4,7 @@ const NavigationContainer = styled.div`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background: #b87333;
+    background: #52648e;
     height: 30px;
     position: sticky;
     top: 0;

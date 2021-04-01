@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const AppContainer = styled.div`
   padding-bottom: 5%;
+  font-family: helvetica;
   .recipes-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -127,12 +128,6 @@ const AppContainer = styled.div`
     text-align: justify;
   }
   .recipe-modal-details {
-    /* display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr;
-    align-items: center;
-    justify-content: center;
-    grid-row-gap: 1%; */
     font-family: inherit;
     margin: 20% 6% 0 0;
     display: block;
