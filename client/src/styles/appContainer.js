@@ -8,7 +8,7 @@ const AppContainer = styled.div`
     grid-template-rows: auto;
     grid-column-gap: 1%;
     grid-row-gap: 1%;
-    margin: 0 6% 0 6%;
+    margin: 0 9%;
   }
   .image-container {
    height: 200px;
