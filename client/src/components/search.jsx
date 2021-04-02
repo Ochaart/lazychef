@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const Search = ({ getRecipes, getRestaurants, toggle }) => {
+const Search = ({ getRecipes, getRestaurants }) => {
   const [food, setFood] = useState('');
   const handleChange = (event) => {
     event.preventDefault();
@@ -10,15 +10,15 @@ const Search = ({ getRecipes, getRestaurants, toggle }) => {
 
   const search = (event) => {
     event.preventDefault();
+    event.stopPropagation();
     getRecipes(food);
-    toggle(false);
     setFood('');
   };
 
   const lazySearch = (event) => {
     event.preventDefault();
+    event.stopPropagation();
     getRestaurants(food);
-    toggle(true);
     setFood('');
   };
 
@@ -41,11 +41,9 @@ export default Search;
 Search.propTypes = {
   getRecipes: PropTypes.func,
   getRestaurants: PropTypes.func,
-  toggle: PropTypes.func,
 };
 
 Search.defaultProps = {
   getRecipes: PropTypes.func,
   getRestaurants: PropTypes.func,
-  toggle: PropTypes.func,
 };

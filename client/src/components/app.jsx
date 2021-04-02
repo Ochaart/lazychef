@@ -25,6 +25,7 @@ const App = () => {
     })
       .then(({ data }) => {
         setRestaurants(data);
+        toggle(true);
       })
       .catch((error) => {
         console.log(error);
@@ -52,6 +53,7 @@ const App = () => {
     })
       .then(({ data }) => {
         setRecipes(data.results);
+        toggle(false);
       })
       .catch((error) => {
         console.log(error);
@@ -92,7 +94,7 @@ const App = () => {
       <div className="chef-container">
         <img className="chef" src={chef} alt="lazy chef" />
       </div>
-      <Search getRecipes={getRecipes} getRestaurants={getRestaurants} toggle={toggle} />
+      <Search getRecipes={getRecipes} getRestaurants={getRestaurants} />
       {toggleRestOrRecipes ? (
         <RestaurantList
           restaurants={restaurants}
