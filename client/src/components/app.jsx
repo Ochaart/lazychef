@@ -31,11 +31,19 @@ const App = () => {
       });
   };
 
-  const getRestaurantDetails = (event, restaurantInfo) => {
+  const getRestaurantDetails = (event, id) => {
     event.preventDefault();
-    console.log(restaurantInfo);
-    setRestaurantDetails(restaurantInfo);
-    setShowRestaurant(true);
+    axios.get('/getResDetails', {
+      params: { id },
+    })
+      .then(({ data }) => {
+        console.log(data);
+        setRestaurantDetails(data);
+        setShowRestaurant(true);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const getRecipes = (ingredient) => {

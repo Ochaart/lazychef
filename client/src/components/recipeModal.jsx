@@ -53,8 +53,8 @@ const RecipeModal = ({ recipeDetails, setShowModal }) => {
     }
   };
   return (
-    <div className="recipe-modal-container" onClick={(event) => { event.stopPropagation(); setShowModal(false); }} onKeyDown={() => setShowModal(false)} role="button" tabIndex={0}>
-      <div className="recipe-modal" onClick={(event) => event.stopPropagation()} onKeyDown={(event) => event.stopPropagation()} role="button" tabIndex={0}>
+    <div className="modal-container" onClick={(event) => { event.stopPropagation(); setShowModal(false); }} onKeyDown={() => setShowModal(false)} role="button" tabIndex={0}>
+      <div className="modal" onClick={(event) => event.stopPropagation()} onKeyDown={(event) => event.stopPropagation()} role="button" tabIndex={0}>
         <div className="recipe-modal-description">
           <div className="title">{`${recipeDetails.title}${wasAdded ? ' ✓' : ''}`}</div>
           <div className="image-container">

@@ -17,4 +17,6 @@ router.get('/getBookRecipes', controller2.getBookRecipes);
 
 router.get('/getRestaurants', controller3.getRestaurants);
 
+router.get('/getResDetails', controller3.getResDetails);
+
 module.exports = router;

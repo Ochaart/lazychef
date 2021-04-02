@@ -85,7 +85,7 @@ const AppContainer = styled.div`
     animation: rise 0.5s;
     outline: none;
   }
-  .recipe-modal-container {
+  .modal-container {
     height: 100%;
     width: 100%;
     position: fixed;
@@ -100,7 +100,7 @@ const AppContainer = styled.div`
     outline: none;
   }
 
-  .recipe-modal {
+  .modal {
     background-color: white;
     padding: 20px;
     padding-bottom: 40px;
@@ -123,7 +123,6 @@ const AppContainer = styled.div`
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: auto;
-    overflow: auto;
     cursor: initial;
     outline: none;
   }
@@ -294,8 +293,41 @@ const AppContainer = styled.div`
     outline:none;
     cursor: pointer;
   }
+  .stars-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%
+  }
+  .count {
+    margin-left: 2%;
+    font-size: 75%;
+  }
+  .res-category {
+    margin-top: 2%;
+    font-size: 80%;
+  }
 
+  .res-image-carousel {
+    display: flex;
+    flex-flow: right;
+    overflow: auto;
+    width: 100%;
+    height: auto;
+  }
 
+  .res-image-container {
+    height: 300px;
+    width: 300px;
+    flex-shrink: 0;
+  }
+  .res-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .gallery {
+    width: 300px;
+  }
 `;
 
 export default AppContainer;
