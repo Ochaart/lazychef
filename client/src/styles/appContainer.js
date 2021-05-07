@@ -69,6 +69,7 @@ const AppContainer = styled.div`
     font-size: 120%;
     text-align: center;
     margin-top: 2.5%;
+    margin-bottom: 1.5%;
   }
   .recipe-card {
     cursor: pointer;
@@ -100,15 +101,12 @@ const AppContainer = styled.div`
     outline: none;
   }
 
-  .modal {
+  .modal,
+  .res-modal {
     background-color: white;
-    padding: 20px;
-    padding-bottom: 40px;
     border: 1px solid black;
     height: auto;
-    width: 60%;
     border-radius: 5px;
-    max-width: 60%;
     @keyframes drop {
       from {
         transform: translateY(-30%);
@@ -121,10 +119,24 @@ const AppContainer = styled.div`
     }
     animation: drop .5s;
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: auto;
     cursor: initial;
     outline: none;
+  }
+
+  .modal {
+    padding: 30px;
+    width: 60%;
+    max-width: 60%;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .res-modal {
+    padding: 30px 40px 30px 40px;
+    width: 50%;
+    max-width: 50%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
   }
 
   .recipe-modal-description {
@@ -313,11 +325,14 @@ const AppContainer = styled.div`
     overflow: auto;
     width: 100%;
     height: auto;
+    overflow-x: hidden;
+    margin-top: 2.5%;
+    scroll-behavior: smooth;
   }
 
   .res-image-container {
-    height: 300px;
-    width: 300px;
+    height: 400px;
+    width: 400px;
     flex-shrink: 0;
   }
   .res-image {
@@ -326,7 +341,24 @@ const AppContainer = styled.div`
     object-fit: cover;
   }
   .gallery {
-    width: 300px;
+    width: 400px;
+  }
+
+  .res-nav-dots {
+    display: flex;
+    justify-content: center;
+  }
+  .res-carousel-indicator {
+    border: 0;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background: rgba(0,0,0,.3);
+    margin: 8px 5px 0 5px;
+    cursor: pointer;
+  }
+  .res-carousel-indicator.current-slide {
+    background: rgba(0,0,0,.75)
   }
 `;
 

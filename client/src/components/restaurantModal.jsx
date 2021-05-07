@@ -2,15 +2,33 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import RestaurantCarousel from './restaurantCarousel';
+import Stars from './stars';
 
 const RestaurantModal = ({ restaurantDetails, setShowRestaurant }) => {
-  console.log('');
+  const moveSlider = (e) => {
+    const dotsNav = document.querySelector('.res-nav-dots');
+    const slider = document.querySelector('.res-image-carousel');
+    const dots = Array.from(dotsNav.children);
+    const targetDot = e.target.closest('button');
+    const currentDot = dotsNav.querySelector('.current-slide');
+    const targetIndex = dots.findIndex((dot) => dot === targetDot);
+    slider.scrollLeft = 400 * targetIndex;
+    currentDot.classList.remove('current-slide');
+    targetDot.classList.add('current-slide');
+  };
+
   return (
     <div className="modal-container" onClick={(event) => { event.stopPropagation(); setShowRestaurant(false); }} onKeyDown={() => setShowRestaurant(false)} role="button" tabIndex={0}>
-      <div className="modal" onClick={(event) => event.stopPropagation()} onKeyDown={(event) => event.stopPropagation()} role="button" tabIndex={0}>
+      <div className="res-modal" onClick={(event) => event.stopPropagation()} onKeyDown={(event) => event.stopPropagation()} role="button" tabIndex={0}>
         <div className="gallery">
           <div className="title">{restaurantDetails.name}</div>
+          <Stars rating={restaurantDetails.rating} reviewCount={restaurantDetails.review_count} />
           <RestaurantCarousel photos={restaurantDetails.photos} />
+          <div className="res-nav-dots" onClick={(e) => moveSlider(e)} role="button" onKeyDown={(e) => moveSlider(e)} tabIndex={0}>
+            <button className="res-carousel-indicator current-slide" type="button" aria-label="nav" />
+            <button className="res-carousel-indicator" type="button" aria-label="nav" />
+            <button className="res-carousel-indicator" type="button" aria-label="nav" />
+          </div>
         </div>
       </div>
     </div>
