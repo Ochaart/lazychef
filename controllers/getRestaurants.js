@@ -23,7 +23,15 @@ module.exports = {
         res.status(200).send(data.businesses);
       })
       .catch((error) => {
-        console.log(error);
+        res.status(400).send(error);
+      });
+  },
+  getResDetails: (req, res) => {
+    yelpREST(`/businesses/${req.query.id}`)
+      .then(({ data }) => {
+        res.status(200).send(data);
+      })
+      .catch((error) => {
         res.status(400).send(error);
       });
   },

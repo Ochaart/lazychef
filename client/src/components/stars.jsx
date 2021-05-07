@@ -11,7 +11,7 @@ import oneHalf from '../../../public/assets/small/small_1_half.png';
 import one from '../../../public/assets/small/small_1.png';
 import zero from '../../../public/assets/small/small_0.png';
 
-const Stars = ({ rating }) => {
+const Stars = ({ rating, reviewCount }) => {
   const returnStars = (score) => {
     if (score === 5) {
       return five;
@@ -46,6 +46,7 @@ const Stars = ({ rating }) => {
   return (
     <div className="stars-container">
       <img src={returnStars(rating)} alt={rating} />
+      <div className="count">{`Reviews: ${reviewCount}`}</div>
     </div>
   );
 };
@@ -54,8 +55,10 @@ export default Stars;
 
 Stars.propTypes = {
   rating: PropTypes.number,
+  reviewCount: PropTypes.number,
 };
 
 Stars.defaultProps = {
-  rating: null,
+  reviewCount: PropTypes.number,
+  rating: PropTypes.number,
 };
