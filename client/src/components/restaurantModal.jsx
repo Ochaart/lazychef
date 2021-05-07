@@ -6,10 +6,11 @@ import Stars from './stars';
 
 const RestaurantModal = ({ restaurantDetails, setShowRestaurant }) => {
   const moveSlider = (e) => {
+    const targetDot = e.target.closest('button');
+    if (!targetDot) return;
     const dotsNav = document.querySelector('.res-nav-dots');
     const slider = document.querySelector('.res-image-carousel');
     const dots = Array.from(dotsNav.children);
-    const targetDot = e.target.closest('button');
     const currentDot = dotsNav.querySelector('.current-slide');
     const targetIndex = dots.findIndex((dot) => dot === targetDot);
     slider.scrollLeft = 400 * targetIndex;
