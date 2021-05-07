@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import RestaurantCarousel from './restaurantCarousel';
 import Stars from './stars';
@@ -18,17 +18,44 @@ const RestaurantModal = ({ restaurantDetails, setShowRestaurant }) => {
     targetDot.classList.add('current-slide');
   };
 
+  const daysOfTheWeek = [
+    'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
+  ];
+
   return (
     <div className="modal-container" onClick={(event) => { event.stopPropagation(); setShowRestaurant(false); }} onKeyDown={() => setShowRestaurant(false)} role="button" tabIndex={0}>
       <div className="res-modal" onClick={(event) => event.stopPropagation()} onKeyDown={(event) => event.stopPropagation()} role="button" tabIndex={0}>
         <div className="gallery">
-          <div className="title">{restaurantDetails.name}</div>
-          <Stars rating={restaurantDetails.rating} reviewCount={restaurantDetails.review_count} />
           <RestaurantCarousel photos={restaurantDetails.photos} />
           <div className="res-nav-dots" onClick={(e) => moveSlider(e)} role="button" onKeyDown={(e) => moveSlider(e)} tabIndex={0}>
             <button className="res-carousel-indicator current-slide" type="button" aria-label="nav" />
             <button className="res-carousel-indicator" type="button" aria-label="nav" />
             <button className="res-carousel-indicator" type="button" aria-label="nav" />
+          </div>
+        </div>
+        <div className="res-details">
+          <div className="title">{restaurantDetails.name}</div>
+          <Stars rating={restaurantDetails.rating} reviewCount={restaurantDetails.review_count} />
+          <div className="price">{restaurantDetails.price}</div>
+          <div className="categories">
+            {restaurantDetails.categories.map((category) => <div>{category.title}</div>)}
+          </div>
+          <div className="display-phone">{restaurantDetails.display_phone}</div>
+          <div className="display-address">
+            {restaurantDetails.location.display_address.map((address) => (
+              <div>{address}</div>
+            ))}
+          </div>
+          <div className="hours">
+            {restaurantDetails.hours[0].open.map((day) => (
+              <div>
+                {daysOfTheWeek[day.day]}
+                {' '}
+                {day.start}
+                {' '}
+                {day.end}
+              </div>
+            ))}
           </div>
         </div>
       </div>
