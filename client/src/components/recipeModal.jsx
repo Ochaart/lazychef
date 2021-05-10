@@ -73,10 +73,11 @@ const RecipeModal = ({ recipeDetails, setShowModal }) => {
                 <img src={book} className="badge" alt="cook book" title="cook book" width="30" height="30" />
                 <div>{wasAdded ? 'Remove' : 'Add Recipe' }</div>
               </div>
-              <div className="meal-container">
-                <img src={planner} className="badge" alt="planner" title="planner" width="30" height="30" />
+              {/* <div className="meal-container">
+                <img src={planner}
+                 className="badge" alt="planner" title="planner" width="30" height="30" />
                 <div>Schedule</div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

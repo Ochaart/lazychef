@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RestaurantCarousel from './restaurantCarousel';
 import Stars from './stars';
+import HoursList from './hoursList';
 
 const RestaurantModal = ({ restaurantDetails, setShowRestaurant }) => {
   const moveSlider = (e) => {
@@ -17,11 +18,6 @@ const RestaurantModal = ({ restaurantDetails, setShowRestaurant }) => {
     currentDot.classList.remove('current-slide');
     targetDot.classList.add('current-slide');
   };
-
-  const daysOfTheWeek = [
-    'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
-  ];
-
   return (
     <div className="modal-container" onClick={(event) => { event.stopPropagation(); setShowRestaurant(false); }} onKeyDown={() => setShowRestaurant(false)} role="button" tabIndex={0}>
       <div className="res-modal" onClick={(event) => event.stopPropagation()} onKeyDown={(event) => event.stopPropagation()} role="button" tabIndex={0}>
@@ -34,28 +30,21 @@ const RestaurantModal = ({ restaurantDetails, setShowRestaurant }) => {
           </div>
         </div>
         <div className="res-details">
-          <div className="title">{restaurantDetails.name}</div>
-          <Stars rating={restaurantDetails.rating} reviewCount={restaurantDetails.review_count} />
-          <div className="price">{restaurantDetails.price}</div>
+          <div className="res-title">{restaurantDetails.name}</div>
           <div className="categories">
-            {restaurantDetails.categories.map((category) => <div>{category.title}</div>)}
+            {restaurantDetails.categories.map((category) => (
+              <div key={category.title}>{category.title}</div>
+            ))}
           </div>
-          <div className="display-phone">{restaurantDetails.display_phone}</div>
+          <Stars rating={restaurantDetails.rating} reviewCount={restaurantDetails.review_count} />
+          <div className="price">{`Price: ${restaurantDetails.price}`}</div>
           <div className="display-address">
             {restaurantDetails.location.display_address.map((address) => (
-              <div>{address}</div>
-            ))}
+              <div key={address}>{address}</div>))}
           </div>
+          <div className="display-phone">{restaurantDetails.display_phone}</div>
           <div className="hours">
-            {restaurantDetails.hours[0].open.map((day) => (
-              <div>
-                {daysOfTheWeek[day.day]}
-                {' '}
-                {day.start}
-                {' '}
-                {day.end}
-              </div>
-            ))}
+            <HoursList hours={restaurantDetails.hours[0].open} />
           </div>
         </div>
       </div>
