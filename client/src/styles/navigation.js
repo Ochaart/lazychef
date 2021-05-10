@@ -7,7 +7,7 @@ const NavigationContainer = styled.div`
     background: #52648e;
     height: 30px;
     position: sticky;
-    top: 0;
+    top: -0.02px;
     .link {
       text-decoration: none;
       outline: none;

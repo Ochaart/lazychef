@@ -65,7 +65,8 @@ const AppContainer = styled.div`
     width: 10%;
   }
 
-  .title {
+  .title,
+  .res-title {
     font-size: 120%;
     text-align: center;
     margin-top: 2.5%;
@@ -133,8 +134,8 @@ const AppContainer = styled.div`
 
   .res-modal {
     padding: 30px 40px 30px 40px;
-    width: 50%;
-    max-width: 50%;
+    width: 42%;
+    max-width: 42%;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
   }
@@ -359,6 +360,37 @@ const AppContainer = styled.div`
   }
   .res-carousel-indicator.current-slide {
     background: rgba(0,0,0,.75)
+  }
+  .res-details {
+    text-align: center;
+  }
+  .categories {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0 5px 0;
+    div {
+      border: 1px white solid;
+      background: orange;
+      border-radius: 50px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      padding: 0px 8px;
+      font-size: 12px;
+    }
+  }
+  .price {
+    margin: 5px 0 5px 0;
+    font-size: 75%;
+  }
+  .res-title {
+    font-size: 150%;
+  }
+  .display-address {
+    margin-top: 30px;
+  }
+  .hours {
+    margin-top: 30px;
   }
 `;
 
