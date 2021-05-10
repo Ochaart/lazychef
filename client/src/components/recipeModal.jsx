@@ -7,7 +7,7 @@ import Ingredients from './ingredients';
 import love from '../../../public/assets/love.png';
 import book from '../../../public/assets/book.png';
 import clock from '../../../public/assets/alarm-clock.png';
-import planner from '../../../public/assets/planner.png';
+// import planner from '../../../public/assets/planner.png';
 import score from '../../../public/assets/score.png';
 import serves from '../../../public/assets/add-group.png';
 
