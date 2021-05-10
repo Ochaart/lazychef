@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import RestaurantCarousel from './restaurantCarousel';
 import Stars from './stars';
 import HoursList from './hoursList';
+import yelpLogo from '../../../public/assets/yelp.png';
 
 const RestaurantModal = ({ restaurantDetails, setShowRestaurant }) => {
   const moveSlider = (e) => {
@@ -45,6 +46,11 @@ const RestaurantModal = ({ restaurantDetails, setShowRestaurant }) => {
           <div className="display-phone">{restaurantDetails.display_phone}</div>
           <div className="hours">
             <HoursList hours={restaurantDetails.hours[0].open} />
+          </div>
+          <div className="yelp-logo-container">
+            <a href={restaurantDetails.url} target="_blank" rel="noreferrer">
+              <img src={yelpLogo} className="yelp-logo" alt="yelp-logo" title="yelp-logo" />
+            </a>
           </div>
         </div>
       </div>

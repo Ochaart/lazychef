@@ -138,6 +138,7 @@ const AppContainer = styled.div`
     max-width: 42%;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
+    grid-column-gap: 25px;
   }
 
   .recipe-modal-description {
@@ -385,12 +386,23 @@ const AppContainer = styled.div`
   }
   .res-title {
     font-size: 150%;
+    margin-top: 6.5%;
   }
   .display-address {
     margin-top: 30px;
   }
   .hours {
     margin-top: 30px;
+  }
+  .yelp-logo-container {
+    height: 60px;
+    width: 120px;
+    margin: 30px auto;
+    outline: none;
+  }
+  .yelp-logo {
+    height: 100%;
+    width: 100%;
   }
 `;
 
