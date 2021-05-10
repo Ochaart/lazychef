@@ -389,15 +389,19 @@ const AppContainer = styled.div`
     margin-top: 6.5%;
   }
   .display-address {
-    margin-top: 30px;
+    margin-top: 6%;
   }
   .hours {
-    margin-top: 30px;
+    margin-top: 6%;
+    font-size: 90%;
+    div {
+      margin-bottom: 1%;
+    }
   }
   .yelp-logo-container {
     height: 60px;
     width: 120px;
-    margin: 30px auto;
+    margin: 5% auto;
     outline: none;
   }
   .yelp-logo {
