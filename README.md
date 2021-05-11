@@ -16,13 +16,15 @@ Clicking home allows you to snap back to the top of the page and return to home 
 CookBook: <br/>
 Clicking cookbook brings you to your saved recipes.
 
+![LazyChef](https://user-images.githubusercontent.com/73146132/117888737-5b6a4980-b267-11eb-9190-8c61a4314147.gif)
+
 Search Bar  <br/>
 Search: <br/>
 Search for recipes. Uses spoonacular API <br/>
 Displays a list of recipe cards. When clicked opens up a modal with details of the recipe and links. <br/>
 the add to recipe button saves the recipe to your cook book. <br/>
 
-![LazyChef](https://user-images.githubusercontent.com/73146132/117888737-5b6a4980-b267-11eb-9190-8c61a4314147.gif)
+![LazyChef2](https://user-images.githubusercontent.com/73146132/117888900-90769c00-b267-11eb-9ecf-30c0df55ff02.gif)
 
 LazyChef: <br/>
 Search for restaurants. Uses yelp API <br/>
