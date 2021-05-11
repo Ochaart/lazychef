@@ -30,3 +30,5 @@ LazyChef: <br/>
 Search for restaurants. Uses yelp API <br/>
 Displays a list of restaurant cards. When clicked opens up a modal with details of the restaurant and links. <br/>
 Includes an image carousel with dots for navigation and smooth scrolling. <br/>
+
+![LazyChef3](https://user-images.githubusercontent.com/73146132/117889388-535ed980-b268-11eb-9429-f36e5593119e.gif)
